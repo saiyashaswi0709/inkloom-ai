@@ -5,10 +5,12 @@ from sqlalchemy.orm import declarative_base, sessionmaker, Session
 
 from app.core.config import settings
 
-# Render PostgreSQL URL fix (postgres:// -> postgresql://)
+# Render PostgreSQL URL fix (ensure postgresql+psycopg2 driver)
 db_url = settings.DATABASE_URL
 if db_url.startswith("postgres://"):
-    db_url = db_url.replace("postgres://", "postgresql://", 1)
+    db_url = db_url.replace("postgres://", "postgresql+psycopg2://", 1)
+elif db_url.startswith("postgresql://"):
+    db_url = db_url.replace("postgresql://", "postgresql+psycopg2://", 1)
 
 engine_kwargs = {}
 if "sqlite" in db_url:
