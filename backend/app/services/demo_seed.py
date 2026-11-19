@@ -48,7 +48,7 @@ def seed_demo_data(db: Session) -> None:
 
     # 3. Memberships
     m1 = OrganisationMembership(user_id=reviewer_user.id, organisation_id=org.id, role=UserRole.REVIEWER)
-    m2 = OrganisationMembership(user_id=creator_user.id, organisation_id=org.id, role=UserRole.CREATOR)
+    m2 = OrganisationMembership(user_id=creator_user.id, organisation_id=org.id, role=UserRole.CONTENT_CREATOR)
     db.add_all([m1, m2])
     db.flush()
 
