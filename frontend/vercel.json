@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/v1/:path*",
-      "destination": "https://inkloom-api.onrender.com/api/v1/:path*"
+      "destination": "https://inkloom-ai-haqr.onrender.com/api/v1/:path*"
     },
     {
       "source": "/(.*)",
